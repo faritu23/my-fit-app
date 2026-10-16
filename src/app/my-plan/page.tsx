@@ -1,5 +1,7 @@
 'use client'
+import AppCards from '@/components/share/AppCards';
 import { AppContext } from '@/context/AppContext';
+import { TApp } from '@/types/apps.type';
 import Link from 'next/link';
 import React, { useContext } from 'react';
 
@@ -39,6 +41,24 @@ const MyPlanPage = () => {
                     </button>
                 </Link>
             </div>
+
+
+             {/* data display  */}
+                {
+                    plans.length>0?(
+                        <div className='grid grid-cols-4 gap-2'>{
+                        
+                        plans.map((app:TApp,idx:number)=>{
+                        return <AppCards key={idx} app={app}></AppCards>;
+                        })
+                        }
+                        </div>
+                    )
+                    :
+                    (
+                        <p className='text-center text-gray-500'>No installed yet..</p>
+                    )
+                }
             
 
             

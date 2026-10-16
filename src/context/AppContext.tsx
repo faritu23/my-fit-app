@@ -1,6 +1,6 @@
 import { TApp } from '@/types/apps.type';
 import React, { ReactNode, useState } from 'react';
-import { createContext } from 'vm';
+import { createContext } from 'react';
 
 type TAppContext = {
     plans: TApp[];

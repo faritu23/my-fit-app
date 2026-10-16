@@ -1,3 +1,4 @@
+import PlanButton from '@/components/apps/PlanButton';
 import { getAllData } from '@/lib/apps';
 import { TApp } from '@/types/apps.type';
 import Image from 'next/image';
@@ -86,7 +87,8 @@ const AppDetailsPage = async ({ params }: AppDetailsProps) => {
 
           {/* Action Buttons */}
           <div className="flex flex-wrap gap-4 pt-2">
-            <button className="btn rounded-[10px] px-5"> Add to todays plan</button>
+            <PlanButton app={appData}/>
+            
             <button className="btn rounded-[10px] px-5"> Save for later</button>
           </div>
 
