@@ -6,7 +6,7 @@ import Image from 'next/image';
 const BannarPage = () => {
     return (
         <section className="container mx-auto  pt-9">
-            <div className="hero min-h-[400px] rounded-xl border border-black bg-black">
+            <div className="hero min-h-[400px] rounded-xl border border-black bg-[#0b0f17]">
                 <div className="hero-content w-full flex max-w-none justify-between px-6 py-10 sm:px-10">
 
                     <div className="max-w-lg">

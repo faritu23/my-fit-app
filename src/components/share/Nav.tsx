@@ -12,7 +12,7 @@ const Navbar = () => {
     const activePage = '/workouts';
 
     return (
-        <header className="sticky  border-b border-black bg-black">
+        <header className="sticky bg-[#0b0f17]">
             <nav className="flex mx-auto min-h-14 w-full max-w-[1440px] ">
 
                 {/* Left: Logo */}

@@ -10,15 +10,16 @@ type TAppProps = {
 const AppCards = ({ app }: TAppProps) => {
     return (
         <Link href={`/${app.id}`} >
-        <div className="card overflow-hidden rounded-xl border border-black bg-black text-white shadow-none transition duration-300 hover:border-[#ccff00]/30">
+        <div className="card overflow-hidden rounded-xl  bg-[#0b0f17] text-white shadow-none transition duration-300 hover:border-[#ccff00]/30">
 
             
-                    <div className="relative h-44 w-full overflow-hidden">
+                    <div className="relative  w-full overflow-hidden">
                         <Image
                             src={app.image}
                             alt={app.name}
-                            width={400}
-                            height={200}
+                            width={500}
+                            height={500}
+                            className='w-full h-84'
                             sizes="(max-width: 640px) 100vw, (max-width: 1024px) 40vw, 23vw"
                         />
                         {/* <Image src={app.image} fill alt={app.name} /> */}
