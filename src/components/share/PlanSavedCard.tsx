@@ -1,15 +1,46 @@
+import { AppContext } from '@/context/AppContext';
 import { TApp } from '@/types/apps.type';
 import Image from 'next/image';
 import Link from 'next/link';
-import React from 'react';
+import React, { useContext } from 'react';
+import toast from 'react-hot-toast';
 
 const PlanSavedCard = ({ app }: {app: TApp}) => {
+    const {
+        plans,
+        setPlans,
+        saved,
+        setSaved,
+        planActive,
+        setPlanCalories,
+        setPlanMinutes,
+        setSavedCalories,
+        setSavedMinutes,
+    } = useContext(AppContext);
+
+
+    const handleDelete = () => {
+    if (planActive) {
+        const updatedPlans = plans.filter((item) => Number(item.id) !== Number(app.id));
+        setPlans(updatedPlans);
+        setPlanCalories((sum) =>  sum - app.caloriesBurned);
+        setPlanMinutes((sum) =>  sum - app.duration );
+
+        toast.success("Removed from Today's Plan");
+    } else {
+        const updatedSaved = saved.filter((item) => Number(item.id) !== Number(app.id));
+        setSaved(updatedSaved);
+        setSavedCalories((sum) => sum - app.caloriesBurned );
+        setSavedMinutes((sum) => sum - app.duration );
+        toast.success("Removed from Saved");
+    }
+    }
     return (
-        <div className=" container mx-auto bg-[#0b0f17] border border-gray-800/80 rounded-2xl p-4 flex flex-col md:flex-row items-start md:items-center justify-between gap-4 text-white shadow-md w-full">
+        <div className="card w-full min-w-0 flex-col items-start justify-between gap-4 rounded-2xl border border-gray-800/80 bg-[#0b0f17] p-3 text-white shadow-md sm:p-4 md:flex-row md:items-center">
             
             {/* Left Side */}
-            <div className="flex items-center gap-4 w-full md:w-auto">
-                <div className="relative w-24 h-16 sm:w-28 sm:h-18 rounded-xl overflow-hidden bg-gray-900 flex-shrink-0 border border-gray-800">
+            <div className="flex w-full min-w-0 items-center gap-3 sm:gap-4 md:w-auto md:flex-1">
+                <div className="relative h-16 w-20 flex-shrink-0 overflow-hidden rounded-xl border border-gray-800 bg-gray-900 sm:h-20 sm:w-28">
                     <Image
                         src={app.image}
                         alt={app.name}
@@ -18,35 +49,37 @@ const PlanSavedCard = ({ app }: {app: TApp}) => {
                     />
                 </div>
 
-                <div className="flex flex-col gap-1">
-                    <h2 className="text-sm sm:text-base font-extrabold uppercase tracking-wide text-white">{app.name}</h2>
-                    <p className="text-xs text-gray-400">{app.equipment}</p>
+                <div className="flex min-w-0 flex-col gap-1">
+                    <h2 className="break-words text-sm font-extrabold uppercase tracking-wide text-white sm:text-base">{app.name}</h2>
+                    <p className="break-words text-xs text-gray-400">{app.equipment}</p>
                     
                     {/* Stats Row */}
-                    <div className="flex items-center gap-3 text-xs text-gray-400 mt-1">
-                        <p className="flex items-center gap-1"><span>⏱</span> {app.duration} min </p>
-                        <p className="flex items-center gap-1"><span>🔥</span> {app.caloriesBurned} kcal</p>
-                        <p className="flex items-center gap-1"><span>☆</span> {app.rating}</p>
+                    <div className="mt-1 flex flex-wrap items-center gap-x-3 gap-y-1 text-xs text-gray-400">
+                        <p className="flex items-center gap-1 whitespace-nowrap"><span>⏱</span> {app.duration} min </p>
+                        <p className="flex items-center gap-1 whitespace-nowrap"><span>🔥</span> {app.caloriesBurned} kcal</p>
+                        <p className="flex items-center gap-1 whitespace-nowrap"><span>☆</span> {app.rating}</p>
                     </div>
                 </div>
             </div>
 
             {/* Right Side: Action Buttons & Close Icon */}
-            <div className="container flex items-center gap-3 w-full md:w-auto justify-end">
+            <div className="flex w-full flex-wrap items-center justify-end gap-2 sm:gap-3 md:w-auto md:flex-nowrap">
                 {/* View Details Button */}
-                <Link href={`/${app.id}`}>
-                    <button className="px-4 py-2 bg-transparent hover:bg-gray-800 text-gray-300 border border-gray-700/80 font-semibold rounded-xl text-xs transition-all">
-                        View Details
-                    </button>
+                <Link href={`/${app.id}`} className="flex-1 whitespace-nowrap rounded-xl border border-gray-700/80 px-3 py-2 text-center text-xs font-semibold text-gray-300 transition-all hover:bg-gray-800 sm:flex-none sm:px-4">
+                    View Details
                 </Link>
 
                 {/* Mark as Done Button */}
-                <button className="px-4 py-2 bg-[#ccff00] hover:bg-[#b8e600] text-black font-bold rounded-xl text-xs flex items-center gap-1.5 transition-all">
+                <button className="flex flex-1 items-center justify-center gap-1.5 whitespace-nowrap rounded-xl bg-[#ccff00] px-3 py-2 text-xs font-bold text-black transition-all hover:bg-[#b8e600] sm:flex-none sm:px-4">
                     <span>✓</span> Mark as Done
                 </button>
 
                 {/* Remove / Close Icon */}
-                <button className="text-gray-500 hover:text-white p-1 text-sm font-bold transition-colors">
+
+                <button className="text-gray-500 hover:text-white p-1 text-sm font-bold transition-colors"
+                 onClick={handleDelete}
+                 aria-label={`Remove ${app.name}`}
+                >
                     ✕
                 </button>
             </div>

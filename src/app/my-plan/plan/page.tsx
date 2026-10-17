@@ -11,7 +11,7 @@ const PlanPage = () => {
             {/* data display  */}
                 {
                     plans.length>0?(
-                        <div className='grid grid-cols-4 gap-2 container mx-auto'>{
+                        <div className='container mx-auto grid grid-cols-1 gap-3 px-4 sm:px-6'>{
 
                         plans.map((app:TApp,idx:number)=>{
                             return <PlanSavedCard key={idx} app={app}></PlanSavedCard>;

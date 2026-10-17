@@ -9,10 +9,10 @@ const SavedButton = ({app}:{app:TApp}) => {
     const {savedCalories ,setSavedCalories}=useContext(AppContext);
     const {savedMinutes ,setSavedMinutes}=useContext(AppContext);
     const {saveActive,setSaveActive}=useContext(AppContext);
+    const isAlreadyInSaved = saved.some((item) => Number(item.id) === Number(app.id));
 
     const handleAddToSaved=()=>{
         // Check if the app is already in the save
-        const isAlreadyInSaved = saved.some((item) => Number(item.id) === Number(app.id));
         console.log(isAlreadyInSaved);
         if(!isAlreadyInSaved)
         {
@@ -30,8 +30,18 @@ const SavedButton = ({app}:{app:TApp}) => {
     }
     
     return (
-       <div>
-           <button className="btn rounded-[10px] px-5" onClick={handleAddToSaved}> Saved for later</button>
+    //    <div>
+    //        <button className="btn rounded-[10px] px-5" onClick={handleAddToSaved}> Saved for later</button>
+    //    </div>
+        <div>
+           <button 
+               onClick={handleAddToSaved}
+               className={`btn rounded-[10px] px-5 border-none font-bold ${
+                   isAlreadyInSaved ? 'bg-[#C2F10D] text-black hover:bg-[#b0d80b]' : 'bg-transparent text-white border border-gray-700 hover:bg-gray-800'
+               }`}
+           >
+              Saved for later
+           </button>
        </div>
         
     );

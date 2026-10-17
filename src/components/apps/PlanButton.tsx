@@ -9,13 +9,9 @@ const PlanButton = ({app}:{app:TApp}) => {
     const {planCalories ,setPlanCalories}=useContext(AppContext);
     const {planMinutes ,setPlanMinutes}=useContext(AppContext);
     const {planActive,setPlanActive}=useContext(AppContext)
-
-    const handleColor=()=>{
-        
-    }
+    const isAlreadyInPlan = plans.some((item) => Number(item.id) === Number(app.id));
     const handleAddToPlans=()=>{
         // Check if the app is already in the plans
-        const isAlreadyInPlan = plans.some((item) => Number(item.id) === Number(app.id));
         console.log(isAlreadyInPlan);
         if(!isAlreadyInPlan)
         {
@@ -33,8 +29,15 @@ const PlanButton = ({app}:{app:TApp}) => {
     }
     
     return (
-       <div>
-           <button className="btn rounded-[10px] px-5" onClick={handleAddToPlans}> Add to todays plan</button>
+        <div>
+           <button 
+               onClick={handleAddToPlans}
+               className={`btn rounded-[10px] px-5 border-none font-bold ${
+                   isAlreadyInPlan ? 'bg-[#C2F10D] text-black hover:bg-[#b0d80b]' : 'bg-transparent text-white border border-gray-700 hover:bg-gray-800'
+               }`}
+           >
+              Add to today's plan
+           </button>
        </div>
         
     );
