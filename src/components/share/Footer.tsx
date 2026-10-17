@@ -6,8 +6,8 @@ import Logo from '@/assets/logo.png';
 const Footer = () => {
     return (
         <div>
-            {/* Left: Logo */}
-                <div className='mt-6 bg-black py-10'>
+            {/* Left*/}
+                <div className='mt-16 bg-[#0b0f17] py-16 '>
                     <div className=" flex justify-between container mx-auto">
                         <Link href="/workouts" className="flex items-center gap-2" aria-label="FitLog home">
                             <Image src={Logo} alt="FitLog logo" width={24} height={24} className="h-6 w-6 object-contain" />

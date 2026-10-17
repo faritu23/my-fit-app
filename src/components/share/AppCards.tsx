@@ -28,7 +28,7 @@ const AppCards = ({ app }: TAppProps) => {
                     {/* Card Content */}
                     <div className="card-body gap-3 p-4">
 
-                        {/* Muscle Group Badges */}
+                        {/* Muscle Array*/}
                         <div className="flex gap-2">
                             {app.muscleGroups.map((muscle) => (
                                 <button key={muscle} className="rounded-2xl bg-[#ccff00] px-2 text-[9px] font-bold uppercase text-black">
@@ -42,7 +42,7 @@ const AppCards = ({ app }: TAppProps) => {
                         {/* line */}
                         <div className="border-t border-white/10"></div>
 
-                        {/* Workout Stats */}
+                        {/* Workout */}
                         <div className="flex flex-wrap items-center justify-between gap-2 text-[10px] text-gray-400">
 
                             <span ><span>◷ </span>{app.duration} min </span>
