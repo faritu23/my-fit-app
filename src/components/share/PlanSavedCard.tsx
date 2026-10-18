@@ -36,7 +36,7 @@ const PlanSavedCard = ({ app }: {app: TApp}) => {
     }
     }
     return (
-        <div className="card w-full min-w-0 flex-col items-start justify-between gap-4 rounded-2xl border border-gray-800/80 bg-[#0b0f17] p-3 text-white shadow-md sm:p-4 md:flex-row md:items-center">
+        <div className="container mx-auto card w-full min-w-0 flex-col items-start justify-between gap-4 rounded-2xl border border-gray-800/80 bg-[#0b0f17] p-3 text-white shadow-md sm:p-4 md:flex-row md:items-center">
             
             {/* Left Side */}
             <div className="flex w-full min-w-0 items-center gap-3 sm:gap-4 md:w-auto md:flex-1">

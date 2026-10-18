@@ -31,7 +31,11 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <AppProvider>
           
             <Navbar></Navbar>
-            {children}
+            {/* ekhane min-h-screen korle footer nichacole jabe */}
+            <div className="min-h-screen">
+              {children}  
+
+            </div>
             <Toaster position="top-right" />
             <Footer></Footer>
 
