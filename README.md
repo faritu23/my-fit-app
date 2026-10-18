@@ -1,12 +1,11 @@
 
-                                                                                            
-                                                                                            # My Fit App
+# My Fit App
                                                                                             
 A modern, responsive fitness and workout tracking web application built to help users explore professional exercise guides, plan daily workout routines, and manage saved fitness activities effortlessly.
 
-                                                                                                ---
+---
 
-                                                                                         ## Technologies Used
+## Technologies Used
 
 - **Framework:** [Next.js](https://nextjs.org/) (App Router)
 - **Language:** [TypeScript](https://www.typescriptlang.org/)
@@ -14,9 +13,9 @@ A modern, responsive fitness and workout tracking web application built to help 
 - **Icons & Notifications:** React Icons, React Hot Toast
 - **State Management:** React Context API
 
-                                                                                                 ---
+---
 
-                                                                                         ## 5 Key Features
+## 5 Key Features
 
 1. **Comprehensive Workout Library & Details:** 
    Explore detailed exercise views featuring high-quality media, descriptions, target muscle groups, required equipment, difficulty levels, and key specs (sets, reps, duration, calories, and ratings) along with step-by-step instructions.
