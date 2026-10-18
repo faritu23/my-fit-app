@@ -3,6 +3,7 @@ import { AppContext } from '@/context/AppContext';
 import { TApp } from '@/types/apps.type';
 import React, { useContext } from 'react';
 import toast from 'react-hot-toast';
+import { FaRegCalendarPlus } from "react-icons/fa";
 
 const PlanButton = ({app}:{app:TApp}) => {
     const {plans,setPlans}=useContext(AppContext);
@@ -36,6 +37,7 @@ const PlanButton = ({app}:{app:TApp}) => {
                    isAlreadyInPlan ? 'bg-[#C2F10D] text-black hover:bg-[#b0d80b]' : 'bg-transparent text-white border border-gray-700 hover:bg-gray-800'
                }`}
            >
+            <FaRegCalendarPlus />
               Add to today's plan
            </button>
        </div>

@@ -3,6 +3,7 @@ import { AppContext } from '@/context/AppContext';
 import { TApp } from '@/types/apps.type';
 import React, { useContext } from 'react';
 import toast from 'react-hot-toast';
+import { CiBookmark } from "react-icons/ci";
 
 const SavedButton = ({app}:{app:TApp}) => {
     const {saved,setSaved}=useContext(AppContext);
@@ -40,6 +41,7 @@ const SavedButton = ({app}:{app:TApp}) => {
                    isAlreadyInSaved ? 'bg-[#C2F10D] text-black hover:bg-[#b0d80b]' : 'bg-transparent text-white border border-gray-700 hover:bg-gray-800'
                }`}
            >
+            <CiBookmark />
               Saved for later
            </button>
        </div>

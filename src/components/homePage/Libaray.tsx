@@ -11,7 +11,7 @@ const Libaray = async () => {
 
     return (
         <div >
-            <div className='container mx-auto py-6'>
+            <div className='container mx-auto py-8'>
                 <h2 className='text-3xl font-bold'>THE LIBRARY</h2>
                 <p className='text-gray-500 text-sm'>Twelve lifts covering every major muscle group.</p>
             </div>

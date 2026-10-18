@@ -2,6 +2,9 @@ import React from 'react';
 import Image from 'next/image';
 import { TApp } from '@/types/apps.type';
 import Link from 'next/link';
+import { MdOutlineWatchLater } from 'react-icons/md';
+import { FaFire } from 'react-icons/fa';
+import { IoIosStarOutline } from 'react-icons/io';
 
 type TAppProps = {
     app: TApp;
@@ -43,12 +46,10 @@ const AppCards = ({ app }: TAppProps) => {
                         <div className="border-t border-white/10"></div>
 
                         {/* Workout */}
-                        <div className="flex flex-wrap items-center justify-between gap-2 text-[10px] text-gray-400">
-
-                            <span ><span>◷ </span>{app.duration} min </span>
-                            <span ><span>◷ </span>{app.duration} {app.caloriesBurned} kcal </span>
-                            <span ><span>☆ </span>{app.rating}</span>
-
+                        <div className="mt-1 flex gap-1 text-xs text-gray-400">
+                            <p className="flex gap-1 "><MdOutlineWatchLater className='text-[#b8e600]' /> {app.duration} min </p>
+                            <p className="flex gap-1 "><FaFire className='text-[#b8e600]'/> {app.caloriesBurned} kcal</p>
+                            <p className="flex gap-1 "><IoIosStarOutline className='text-[#b8e600]' /> {app.rating}</p>
                         </div>
 
                         

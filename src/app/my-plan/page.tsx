@@ -1,5 +1,6 @@
 'use client';
 import PlanSavedCard from '@/components/share/PlanSavedCard';
+import SavedCard from '@/components/share/SaveCard';
 import { AppContext } from '@/context/AppContext';
 import { TApp } from '@/types/apps.type';
 import Link from 'next/link';
@@ -149,34 +150,47 @@ const MyPlanPage = () => {
                         )
                         :
                         ( 
-                        <div className='p-15 container flex flex-col items-center justify-center mx-auto gap-2'>
-                            <p className='text-center text-3xl font-bold'>NOTHING HERE YET</p>
-                            <p className='text-gray-500 text-center'>Browse the library and add a lift to get today moving.</p>
+                            <div className="hero container mx-auto bg-[#0b0f17] rounded-2xl min-h-svh">
+                                <div className="gap-2 text-center">
+                                    <p className='text-center text-3xl font-bold '>NOTHING HERE YET</p>
+                                    <p className='text-gray-500 text-center mt-1'>Browse the library and add a lift to get today moving.</p>
 
-                            <Link href={'/'} className='inline-block'>
-                                <button className='bg-[#C2F10D] text-black btn rounded-2xl '> Go to workouts </button>
-                            </Link>
-                        </div>
+                                    <Link href={'/'} className='inline-block mt-1'>
+                                      <button className='bg-[#C2F10D] text-black btn rounded-2xl '> Go to workouts </button>
+                                    </Link>
+                                </div>
+                            </div>
                         )
                     ):(
                         saved.length>0?(
                             <div className='grid gap-2'>{
                             
                             saved.map((app:TApp,idx:number)=>{
-                                return <PlanSavedCard key={idx} app={app}></PlanSavedCard>;
+                                return <SavedCard key={idx} app={app}></SavedCard>;
                             })
                             }
                             </div>
                         )
                         :
                         (
-                            <div className='p-15 container flex flex-col items-center justify-center mx-auto gap-2'>
-                            <p className='text-center text-3xl font-bold'>NOTHING HERE YET</p>
-                            <p className='text-gray-500 text-center'>Browse the library and add a lift to get today moving.</p>
+                            // <div className='p-15 container flex flex-col items-center justify-center mx-auto gap-2'>
+                            // <p className='text-center text-3xl font-bold'>NOTHING HERE YET</p>
+                            // <p className='text-gray-500 text-center'>Browse the library and add a lift to get today moving.</p>
 
-                            <Link href={'/'} className='inline-block'>
-                                <button className='bg-[#C2F10D] text-black btn rounded-2xl '> Go to workouts </button>
-                            </Link>
+                            // <Link href={'/'} className='inline-block'>
+                            //     <button className='bg-[#C2F10D] text-black btn rounded-2xl '> Go to workouts </button>
+                            // </Link>
+                            // </div>
+
+                            <div className="hero container mx-auto bg-[#0b0f17] rounded-2xl min-h-svh">
+                                <div className="gap-2 text-center">
+                                    <p className='text-center text-3xl font-bold'>NOTHING HERE YET</p>
+                                    <p className='text-gray-500 text-center mt-1'>Browse the library and add a lift to get today moving.</p>
+
+                                    <Link href={'/'} className='inline-block mt-1'>
+                                      <button className='bg-[#C2F10D] text-black btn rounded-2xl '> Go to workouts </button>
+                                    </Link>
+                                </div>
                             </div>
                         )
 

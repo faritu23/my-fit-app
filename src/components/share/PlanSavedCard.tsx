@@ -4,21 +4,14 @@ import Image from 'next/image';
 import Link from 'next/link';
 import React, { useContext } from 'react';
 import toast from 'react-hot-toast';
+import { RxCross2 } from "react-icons/rx";
+import { MdOutlineDone } from "react-icons/md";
+import { IoIosStarOutline } from "react-icons/io";
+import { FaFire } from "react-icons/fa6";
+import { MdOutlineWatchLater } from "react-icons/md";
 
 const PlanSavedCard = ({ app }: {app: TApp}) => {
-    const {
-        plans,
-        setPlans,
-        saved,
-        setSaved,
-        planActive,
-        setPlanCalories,
-        setPlanMinutes,
-        setSavedCalories,
-        setSavedMinutes,
-    } = useContext(AppContext);
-
-
+    const { plans, setPlans, saved, setSaved, planActive, setPlanCalories, setPlanMinutes, setSavedCalories, setSavedMinutes} = useContext(AppContext);
     const handleDelete = () => {
     if (planActive) {
         const updatedPlans = plans.filter((item) => Number(item.id) !== Number(app.id));
@@ -26,14 +19,24 @@ const PlanSavedCard = ({ app }: {app: TApp}) => {
         setPlanCalories((sum) =>  sum - app.caloriesBurned);
         setPlanMinutes((sum) =>  sum - app.duration );
 
-        toast.success("Removed from Today's Plan");
+        toast.error("Delete from Today's Plan");
     } else {
         const updatedSaved = saved.filter((item) => Number(item.id) !== Number(app.id));
         setSaved(updatedSaved);
         setSavedCalories((sum) => sum - app.caloriesBurned );
         setSavedMinutes((sum) => sum - app.duration );
-        toast.success("Removed from Saved");
+        toast.error("Delete from Saved");
     }
+    }
+    const handleDeleteForDone = () => {
+    
+        const updatedPlans = plans.filter((item) => Number(item.id) !== Number(app.id));
+        setPlans(updatedPlans);
+        setPlanCalories((sum) =>  sum - app.caloriesBurned);
+        setPlanMinutes((sum) =>  sum - app.duration );
+
+        toast.success("Done");
+    
     }
     return (
         <div className="container mx-auto card w-full min-w-0 flex-col items-start justify-between gap-4 rounded-2xl border border-gray-800/80 bg-[#0b0f17] p-3 text-white shadow-md sm:p-4 md:flex-row md:items-center">
@@ -55,9 +58,9 @@ const PlanSavedCard = ({ app }: {app: TApp}) => {
                     
                     {/* Stats Row */}
                     <div className="mt-1 flex flex-wrap items-center gap-x-3 gap-y-1 text-xs text-gray-400">
-                        <p className="flex items-center gap-1 whitespace-nowrap"><span>⏱</span> {app.duration} min </p>
-                        <p className="flex items-center gap-1 whitespace-nowrap"><span>🔥</span> {app.caloriesBurned} kcal</p>
-                        <p className="flex items-center gap-1 whitespace-nowrap"><span>☆</span> {app.rating}</p>
+                        <p className="flex items-center gap-1 whitespace-nowrap"><MdOutlineWatchLater className='text-[#b8e600]' /> {app.duration} min </p>
+                        <p className="flex items-center gap-1 whitespace-nowrap"><FaFire className='text-[#b8e600]'/> {app.caloriesBurned} kcal</p>
+                        <p className="flex items-center gap-1 whitespace-nowrap"><IoIosStarOutline className='text-[#b8e600]' /> {app.rating}</p>
                     </div>
                 </div>
             </div>
@@ -70,17 +73,17 @@ const PlanSavedCard = ({ app }: {app: TApp}) => {
                 </Link>
 
                 {/* Mark as Done Button */}
-                <button className="flex flex-1 items-center justify-center gap-1.5 whitespace-nowrap rounded-xl bg-[#ccff00] px-3 py-2 text-xs font-bold text-black transition-all hover:bg-[#b8e600] sm:flex-none sm:px-4">
-                    <span>✓</span> Mark as Done
+                <button className="flex flex-1 items-center justify-center gap-1.5 whitespace-nowrap rounded-xl bg-[#ccff00] px-3 py-2 text-xs font-bold text-black transition-all hover:bg-[#b8e600] sm:flex-none sm:px-4" onClick={handleDeleteForDone}>
+                    <MdOutlineDone /> Mark as Done
                 </button>
 
-                {/* Remove / Close Icon */}
+                {/* Remove  */}
 
                 <button className="text-gray-500 hover:text-white p-1 text-sm font-bold transition-colors"
                  onClick={handleDelete}
                  aria-label={`Remove ${app.name}`}
                 >
-                    ✕
+                    <RxCross2 />
                 </button>
             </div>
 
