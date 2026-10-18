@@ -1,36 +1,35 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
-## Getting Started
+                                                                                            
+                                                                                            # My Fit App
+                                                                                            
+A modern, responsive fitness and workout tracking web application built to help users explore professional exercise guides, plan daily workout routines, and manage saved fitness activities effortlessly.
 
-First, run the development server:
+                                                                                                ---
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+                                                                                         ## Technologies Used
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- **Framework:** [Next.js](https://nextjs.org/) (App Router)
+- **Language:** [TypeScript](https://www.typescriptlang.org/)
+- **Styling:** [Tailwind CSS](https://tailwindcss.com/) & [DaisyUI](https://daisyui.com/)
+- **Icons & Notifications:** React Icons, React Hot Toast
+- **State Management:** React Context API
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+                                                                                                 ---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+                                                                                         ## 5 Key Features
 
-## Learn More
+1. **Comprehensive Workout Library & Details:** 
+   Explore detailed exercise views featuring high-quality media, descriptions, target muscle groups, required equipment, difficulty levels, and key specs (sets, reps, duration, calories, and ratings) along with step-by-step instructions.
 
-To learn more about Next.js, take a look at the following resources:
+2. **Today’s Plan & Saved Management:** 
+   Easily add workouts to your **Today's Plan** tab or **Saved** list with a single click, complete with real-time navbar counter updates.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+3. **Dynamic Stats Dashboard:** 
+   Instantly track your fitness metrics with a live-updating dashboard that calculates total planned exercises, total workout duration in minutes, and total expected calories burned.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+4. **Smart Sorting & Organization:** 
+   Effortlessly sort your planned and saved workouts by **Duration**, **Calories**, or **Rating** using a custom filter dropdown.
 
-## Deploy on Vercel
+5. **Sleek Dark Mode & Interactive UI:** 
+   Designed with a modern dark-themed aesthetic using Tailwind CSS and DaisyUI, featuring responsive layout tabs, active state indicators, and instant feedback via custom toast notifications.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
